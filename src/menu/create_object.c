@@ -6,7 +6,7 @@
 */
 
 #include <stdlib.h>
-#include "my_rpg.h" 
+#include "my_rpg.h"
 
 game_object_t create_object (char *path, int x, int y)
 {
@@ -41,7 +41,7 @@ void destroy_object(game_object_t *object)
 void init_hitbox(game_object_t *object)
 {
     sfVector2u size_texture = sfTexture_getSize (object->texture);
-    
+
     object->hitbox->top = object->pos.y;
     object->hitbox->left = object->pos.x;
     object->hitbox->width = size_texture.x;

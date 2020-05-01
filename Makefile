@@ -5,13 +5,13 @@
 ## Root Makefile
 ##
 
-SRC		=	main.c			\
-			map.c			\
-			create_object.c	\
-			events.c		\
-			menu.c			\
-			button_menu.c	\
-			button_click.c
+SRC		=	main.c					\
+			menu/create_object.c	\
+			menu/create_button.c	\
+			menu/events.c			\
+			menu/menu.c				\
+			menu/button_menu.c		\
+			menu/button_click.c
 $(eval SRC = $(addprefix src/, $(SRC)))
 
 SRC_TEST	=	tests/eval_expr_tests.c	\
@@ -30,7 +30,7 @@ run:
 	$(CC) -o $(NAME) $(SRC) -l csfml-graphics -l csfml-window -l csfml-audio -I./include $(Flag)
 	rm -f $(OBJ)
 
-debug: 	
+debug:
 	$(CC) -o $(NAME) $(SRC) -l csfml-graphics -l csfml-window -l csfml-audio -I./include -g3
 clean:
 	find -name "*.o" -delete

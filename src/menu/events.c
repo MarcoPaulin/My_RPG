@@ -7,12 +7,11 @@
 
 #include "my_rpg.h"
 
-int events(sfRenderWindow *window, m_menu *menu,  int *switch_scene)
+int menu_events(sfRenderWindow *window, m_menu *menu)
 {
     sfEvent event;
     while (sfRenderWindow_pollEvent(window, &event)) {
-        if (switch_scene[0] == 0)
-            m_button_menu(menu, &event, switch_scene);
+        m_button_menu(menu, &event);
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
     }
