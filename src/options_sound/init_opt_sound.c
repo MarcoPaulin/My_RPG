@@ -13,16 +13,17 @@ m_opt_video init_texture_sound(void)
     m_opt_video opt;
     sfVector2i s_sprite_check = {100, 50};
     sfVector2i s_sprite_quit = {200, 60};
+
     opt.quit_pressed = 0;
     opt.sprite = 0;
     opt.background = create_object("sprite/Options_sounds/background.png"
-    , 0, 0);
+                                   , 0, 0);
     opt.vsync = create_object("sprite/Options_sounds/sound.png",
-    400, 300);
+                              400, 300);
     opt.button_checkbox = create_button("sprite/Options_sounds/checkbox.png",
-    650, 300, s_sprite_check);
+                                        650, 300, s_sprite_check);
     opt.button_quit = create_button("sprite/Options_sounds/button_quit.png",
-    400, 500, s_sprite_quit);
+                                    400, 500, s_sprite_quit);
     return (opt);
 }
 

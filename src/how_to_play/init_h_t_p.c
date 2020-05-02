@@ -12,9 +12,9 @@ m_htp init_texture_h_t_p(void)
 {
     m_htp h_t_p;
     sfVector2i s_sprite = {200, 60};
+
     h_t_p.quit_pressed = 0;
-    h_t_p.background = create_object("sprite/How_to_play/background.png"
-    , 0, 0);
+    h_t_p.background = create_object("sprite/How_to_play/background.png", 0, 0);
     h_t_p.button_quit = create_button("sprite/How_to_play/button_quit.png",
     400, 900, s_sprite);
     return (h_t_p);

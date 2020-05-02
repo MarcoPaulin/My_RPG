@@ -5,8 +5,6 @@
 ** how_to_play
 */
 
-#include "my_rpg.h"
-
 #ifndef HOW_TO_PLAY_H_
 #define HOW_TO_PLAY_H_
 

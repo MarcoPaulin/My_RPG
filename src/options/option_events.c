@@ -11,6 +11,7 @@
 int option_events(sfRenderWindow *window, m_opt *option, m_menu *menu)
 {
     sfEvent event;
+
     while (sfRenderWindow_pollEvent(window, &event)) {
         m_button_option(option, window, menu);
         if (event.type == sfEvtClosed) {

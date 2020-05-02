@@ -13,6 +13,7 @@
 void opt_button_quit(m_opt *option)
 {
     sfBool click = button_pressed(&option->button_quit);
+
     if (click == sfTrue)
         option->quit_pressed = 1;
 }
@@ -20,6 +21,7 @@ void opt_button_quit(m_opt *option)
 void opt_button_video(m_opt *option, sfRenderWindow *window, m_menu *menu)
 {
     sfBool click = button_pressed(&option->button_video);
+
     if (click == sfTrue)
         opt_loop_video(window, option, menu);
 }
@@ -27,6 +29,7 @@ void opt_button_video(m_opt *option, sfRenderWindow *window, m_menu *menu)
 void opt_button_sound(m_opt *option, sfRenderWindow *window, m_menu *menu)
 {
     sfBool click = button_pressed(&option->button_sound);
+
     if (click == sfTrue)
         opt_loop_sound(window, option, menu);
 }

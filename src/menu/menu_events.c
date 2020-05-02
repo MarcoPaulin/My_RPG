@@ -10,8 +10,9 @@
 int menu_events(sfRenderWindow *window, m_menu *menu)
 {
     sfEvent event;
+
     while (sfRenderWindow_pollEvent(window, &event)) {
-        m_button_menu(menu, &event, window);
+    m_button_menu(menu, &event, window);
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
     }

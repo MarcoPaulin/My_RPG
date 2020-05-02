@@ -5,8 +5,6 @@
 ** option
 */
 
-#include "my_rpg.h"
-
 #ifndef OPTION_H_
 #define OPTION_H_
 

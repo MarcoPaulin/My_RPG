@@ -8,10 +8,149 @@
 #include <SFML/Graphics.h>
 #include <SFML/Window.h>
 #include <SFML/Audio.h>
+#include <SFML/System/Time.h>
 #include <stdlib.h>
 
 #ifndef MY_DEFENDER_H_
 #define MY_DEFENDER_H_
+
+typedef struct character
+{
+    sfTexture *tex_idle;
+    sfTexture *tex_run;
+    sfTexture *tex_jump;
+    sfTexture *tex_att;
+    sfTexture *tex_lad;
+    sfTexture *tex_lb;
+    sfTexture *tex_hp;
+    sfTexture *tex_dead;
+    sfSprite *spr_idle;
+    sfSprite *spr_run;
+    sfSprite *spr_jump;
+    sfSprite *spr_att;
+    sfSprite *spr_lad;
+    sfSprite *spr_lb;
+    sfSprite *spr_hp;
+    sfSprite *spr_dead;
+    sfVector2f pos;
+    int z;
+    int act;
+    int dir;
+    int hp;
+    int key;
+    int xp;
+    int att;
+    int def;
+    sfClock *clock;
+} charact_t;
+
+typedef struct mob
+{
+    sfIntRect rect;
+    int act;
+    int dir;
+    int z;
+    int hp;
+    sfClock *clock;
+} mob_t;
+
+typedef struct map
+{
+    sfTexture *tex;
+    sfSprite *spr;
+    sfTexture *tex_bg;
+    sfSprite *spr_bg;
+    sfIntRect *ground;
+    sfIntRect *wall;
+    sfIntRect *door;
+    sfIntRect *ladder;
+    mob_t *mob;
+    struct map **door_map;
+    sfVector2f *door_pos;
+    int nb_platform;
+    int nb_wall;
+    int nb_door;
+    int nb_ladder;
+    int nb_mob;
+    sfVector2f dim;
+} map_t;
+
+typedef struct mob_tex
+{
+    sfTexture *tex_mob_walk;
+    sfTexture *tex_mob_hit;
+    sfTexture *tex_mob_att;
+    sfTexture *tex_mob_dead;
+    sfTexture *tex_key;
+    sfSprite *spr_mob_walk;
+    sfSprite *spr_mob_hit;
+    sfSprite *spr_mob_att;
+    sfSprite *spr_mob_dead;
+    sfSprite *spr_key;
+} mob_tex_t;
+
+typedef struct res_pause
+{
+    sfTexture *tex_bg;
+    sfTexture *tex_cur;
+    sfTexture *tex_opt;
+    sfTexture *tex_htp;
+    sfTexture *tex_exit;
+    sfSprite *spr_bg;
+    sfSprite *spr_cur;
+    sfSprite *spr_opt;
+    sfSprite *spr_htp;
+    sfSprite *spr_exit;
+} res_pause_t;
+
+typedef struct sound
+{
+    sfSound *song;
+    sfSound *attack;
+    sfSoundBuffer *buf1;
+    sfSoundBuffer *buf2;
+} sound_t;
+
+typedef struct obj
+{
+    sfRenderWindow *win;
+    charact_t *charact;
+    map_t *map;
+    map_t *map_list;
+    mob_tex_t *mob;
+    int quit;
+    sound_t *sound;
+    int check_s;
+    int check_v;
+} obj_t;
+
+void game_initialize(obj_t *);
+void game_init_charact(charact_t *);
+void init_rect(sfIntRect *, sfIntRect);
+void game_init_room1(obj_t *, map_t *);
+void game_init_room2(obj_t *, map_t *);
+void game_init_room3(obj_t *, map_t *);
+void game_init_room4(obj_t *, map_t *);
+void game_init_room5(obj_t *, map_t *);
+void game_loop(obj_t *);
+void game_render(obj_t *);
+sfVector2f define_map_pos(obj_t *);
+sfVector2f define_charact_pos(obj_t *);
+void game_render_charact(obj_t *);
+void game_render_charact_move(obj_t *);
+void game_render_charact_static(obj_t *);
+void game_render_mob(obj_t *, mob_t *);
+void game_event(obj_t *, sfEvent);
+void game_event_move_charact(obj_t *);
+void game_event_move_charact_depth(obj_t *);
+void game_engine(obj_t *);
+void game_engine_charact(obj_t *);
+void game_engine_mob(obj_t *, mob_t *);
+void game_menu_pause(obj_t *);
+void game_dialogue(obj_t *);
+void game_stat(obj_t *);
+void play_attack_sound(obj_t *);
+void execute_cursor(obj_t *, int, int *);
 
 typedef struct button_s
 {

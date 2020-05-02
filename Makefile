@@ -26,7 +26,30 @@ SRC		=	main.c								\
 			options_video/opt_video_events.c	\
 			how_to_play/h_t_p_events.c			\
 			how_to_play/init_h_t_p.c			\
-			how_to_play/loop_h_t_p.c
+			how_to_play/loop_h_t_p.c	\
+			game/game_initialize.c  \
+                        game/game_init_charact.c        \
+                        game/game_init_room1.c  \
+                        game/game_init_room2.c  \
+                        game/game_init_room3.c  \
+                        game/game_init_room4.c  \
+                        game/game_init_room5.c  \
+                        game/game_loop.c        \
+                        game/game_render.c      \
+                        game/game_render_charact.c      \
+                        game/game_render_charact_move.c \
+                        game/game_render_charact_static.c       \
+                        game/game_render_mob.c  \
+                        game/game_event.c       \
+                        game/game_event_move_charact.c  \
+                        game/game_event_move_charact_depth.c    \
+                        game/game_engine.c      \
+                        game/game_engine_charact.c      \
+                        game/game_engine_mob.c  \
+                        game/game_menu_pause.c  \
+                        game/game_dialogue.c    \
+                        game/game_stat.c	\
+			game/execute_cursor.c
 
 $(eval SRC = $(addprefix src/, $(SRC)))
 
@@ -43,7 +66,7 @@ CC	=	gcc
 all:	run
 
 run:
-	$(CC) -o $(NAME) $(SRC) -l csfml-graphics -l csfml-window -l csfml-audio -I./include $(Flag)
+	$(CC) -o $(NAME) $(SRC) -l csfml-graphics -l csfml-window -l csfml-audio -l csfml-system -I./include $(Flag)
 	rm -f $(OBJ)
 
 debug:

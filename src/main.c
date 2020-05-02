@@ -10,7 +10,9 @@
 int main(void)
 {
     sfVideoMode mode = {1920, 1080, 32};
-    sfRenderWindow *window = sfRenderWindow_create(mode, "RPG", sfClose, NULL);
+    sfRenderWindow *window = sfRenderWindow_create(mode,
+                                                   "RPG",
+                                                   sfDefaultStyle | sfClose, NULL);
     m_menu menu = init_texture_menu();
 
     sfRenderWindow_setVerticalSyncEnabled(window, sfTrue);
