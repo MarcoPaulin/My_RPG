@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "my_rpg.h"
 
-button_t create_button (char *path, int x, int y, sfVector2i s_sprite)
+button_t create_button(char *path, int x, int y, sfVector2i s_sprite)
 {
     button_t button;
 

@@ -21,6 +21,8 @@ m_menu init_texture_menu(void)
     1010, 800, s_sprite);
     menu.button_how_to_play = create_button(
     "sprite/Menu/button_how_to_play.png", 1465, 800, s_sprite);
+    menu.check_v = 0;
+    menu.check_s = 0;
     menu.song = sfSound_create();
     menu.soundBuffer = sfSoundBuffer_createFromFile("audio/musique_menu.ogg");
     sfSound_setBuffer(menu.song, menu.soundBuffer);

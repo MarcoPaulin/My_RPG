@@ -5,13 +5,29 @@
 ## Root Makefile
 ##
 
-SRC		=	main.c					\
-			menu/create_object.c	\
-			menu/create_button.c	\
-			menu/events.c			\
-			menu/menu.c				\
-			menu/button_menu.c		\
-			menu/button_click.c
+SRC		=	main.c								\
+			menu/create_object.c				\
+			menu/create_button.c				\
+			menu/menu_events.c					\
+			menu/menu.c							\
+			menu/button_menu.c					\
+			menu/button_click.c					\
+			options/loop.c						\
+			options/init_option.c				\
+			options/option_button.c				\
+			options/option_events.c				\
+			options_sound/loop_sound.c			\
+			options_sound/init_opt_sound.c		\
+			options_sound/opt_sound_button.c	\
+			options_sound/opt_sound_events.c	\
+			options_video/loop_video.c			\
+			options_video/init_opt_video.c		\
+			options_video/opt_video_button.c	\
+			options_video/opt_video_events.c	\
+			how_to_play/h_t_p_events.c			\
+			how_to_play/init_h_t_p.c			\
+			how_to_play/loop_h_t_p.c
+
 $(eval SRC = $(addprefix src/, $(SRC)))
 
 SRC_TEST	=	tests/eval_expr_tests.c	\
