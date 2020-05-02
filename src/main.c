@@ -14,6 +14,7 @@ int main(void)
     sfFullscreen | sfClose, NULL);
     m_menu menu = init_texture_menu();
 
+    sfRenderWindow_setVerticalSyncEnabled(window, sfTrue);
     while (sfRenderWindow_isOpen(window)) {
         menu_events(window, &menu);
         display_menu(window, &menu);

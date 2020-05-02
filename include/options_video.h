@@ -24,7 +24,8 @@ int opt_eve_v(sfRenderWindow *win, m_opt_video *opti, m_opt *opt, m_menu *menu);
 
 //  opt_video_button.c
 void opt_video_button_quit(m_opt_video *option);
-void opt_video_button_v(m_opt_video *option, m_menu *menu, sfRenderWindow * win);
+void opt_video_button_v(m_opt_video *opt, m_menu *menu, sfRenderWindow * win);
 void m_opt_b_video(m_opt_video *opt, m_menu *menu, sfRenderWindow * win);
+int checkbox_pressed(button_t *button, int sprite);
 
 #endif /* !OPTIONS_VIDEO_H_ */
