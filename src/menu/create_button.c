@@ -43,7 +43,7 @@ void destroy_button(button_t *button)
 
 void init_hitbox_button(button_t *button)
 {
-    button->hitbox->top = (int)button->pos.y;
+    button->hitbox->top = (int)button->pos.y + (button->size_sprite.y);
     button->hitbox->left = (int)button->pos.x;
     button->hitbox->width = button->size_sprite.x;
     button->hitbox->height = button->size_sprite.y;
