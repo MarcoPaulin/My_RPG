@@ -11,8 +11,7 @@ static int check_move(obj_t *obj, int dist)
 {
     for (int i = 0; i < obj->map->nb_wall; i++)
         if (sfIntRect_contains(&obj->map->wall[i],
-                               obj->charact->pos.x + dist,
-                               obj->charact->pos.y) == 1)
+        obj->charact->pos.x + dist, obj->charact->pos.y) == 1)
             return (1);
     return (0);
 }

@@ -11,7 +11,7 @@ static int change_map(obj_t *obj)
 {
     for (int i = 0; i < obj->map->nb_door; i++)
         if (sfIntRect_contains(&obj->map->door[i],
-                               obj->charact->pos.x, obj->charact->pos.y) == 1) {
+        obj->charact->pos.x, obj->charact->pos.y) == 1) {
             obj->charact->pos.x = obj->map->door_pos[i].x;
             obj->charact->pos.y = obj->map->door_pos[i].y;
             obj->map = obj->map->door_map[i];

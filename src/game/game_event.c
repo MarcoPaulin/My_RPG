@@ -58,9 +58,10 @@ static void open_menu(obj_t *obj, sfEvent event)
 void game_event(obj_t *obj, sfEvent event)
 {
     attack_character(obj);
-    if (sfKeyboard_isKeyPressed(sfKeyQ)==1||sfKeyboard_isKeyPressed(sfKeyD)==1
-        ||sfKeyboard_isKeyPressed(sfKeyZ)==1
-        ||sfKeyboard_isKeyPressed(sfKeyS)==1)
+    if (sfKeyboard_isKeyPressed(sfKeyQ) == 1 ||
+    sfKeyboard_isKeyPressed(sfKeyD) == 1
+        || sfKeyboard_isKeyPressed(sfKeyZ) == 1
+        || sfKeyboard_isKeyPressed(sfKeyS) == 1)
         game_event_move_charact(obj);
     if (sfKeyboard_isKeyPressed(sfKeySpace) == 1)
         jump_character(obj);

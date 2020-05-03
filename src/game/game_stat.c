@@ -8,7 +8,7 @@
 #include "my_rpg.h"
 
 static void game_stat_render_cur(obj_t *obj, sfSprite *spr_cur,
-                                 sfVector2f pos, int nb)
+sfVector2f pos, int nb)
 {
     for (int i = 0; i < nb; i++) {
         sfSprite_setPosition(spr_cur, pos);
@@ -18,12 +18,14 @@ static void game_stat_render_cur(obj_t *obj, sfSprite *spr_cur,
 }
 
 static void game_stat_render(obj_t *obj, sfSprite *spr_bg,
-                             sfSprite *spr_cur, sfSprite *spr_bt)
+sfSprite *spr_cur, sfSprite *spr_bt)
 {
     sfRenderWindow_drawSprite(obj->win, spr_bg, NULL);
     game_stat_render_cur(obj, spr_cur, (sfVector2f){0, 0}, obj->charact->xp);
-    game_stat_render_cur(obj, spr_cur, (sfVector2f){0, 140}, obj->charact->att);
-    game_stat_render_cur(obj, spr_cur, (sfVector2f){0, 240}, obj->charact->def);
+    game_stat_render_cur(obj, spr_cur, (sfVector2f){0, 140},
+    obj->charact->att);
+    game_stat_render_cur(obj, spr_cur, (sfVector2f){0, 240},
+    obj->charact->def);
     sfSprite_setTextureRect(spr_bt, (sfIntRect){0, 0, 73, 73});
     sfSprite_setPosition(spr_bt, (sfVector2f){250, 200});
     sfRenderWindow_drawSprite(obj->win, spr_bt, NULL);
@@ -66,7 +68,8 @@ void game_stat(obj_t *obj)
 {
     sfTexture *tex_bg = sfTexture_createFromFile("assets/stat_bg.jpg", NULL);
     sfTexture *tex_cur = sfTexture_createFromFile("assets/stat_cur.png", NULL);
-    sfTexture *tex_bt =	sfTexture_createFromFile("assets/stat_button.png", NULL);
+    sfTexture *tex_bt = sfTexture_createFromFile("assets/stat_button.png",
+    NULL);
     sfSprite *spr_bg = sfSprite_create();
     sfSprite *spr_cur = sfSprite_create();
     sfSprite *spr_bt = sfSprite_create();

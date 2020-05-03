@@ -33,7 +33,6 @@ static void move_cursor(sfEvent event, int *cursor, int *quit)
         cursor[0] = (cursor[0] + 1) % 3;
     else
         quit[0] += 1;
-    
 }
 
 static void game_pause_event(obj_t *obj, int *cursor, int *quit)

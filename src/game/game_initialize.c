@@ -15,29 +15,40 @@ void init_rect(sfIntRect *rect, sfIntRect value)
     rect->height = value.height;
 }
 
-static void game_init_mob(obj_t *obj)
+void game_init_mob2(obj_t *obj)
 {
-    obj->mob = malloc(sizeof(mob_tex_t));
-    obj->mob->tex_mob_walk = sfTexture_createFromFile("assets/dem_walk.png", NULL);
-    obj->mob->spr_mob_walk = sfSprite_create();
-    sfSprite_setTexture(obj->mob->spr_mob_walk, obj->mob->tex_mob_walk, sfFalse);
-    sfSprite_scale(obj->mob->spr_mob_walk, (sfVector2f){4, 4});
-    obj->mob->tex_mob_hit = sfTexture_createFromFile("assets/dem_hit.png", NULL);
-    obj->mob->spr_mob_hit = sfSprite_create();
-    sfSprite_setTexture(obj->mob->spr_mob_hit, obj->mob->tex_mob_hit, sfFalse);
-    sfSprite_scale(obj->mob->spr_mob_hit, (sfVector2f){4, 4});
-    obj->mob->tex_mob_att = sfTexture_createFromFile("assets/dem_attack.png", NULL);
+    obj->mob->tex_mob_att = sfTexture_createFromFile("assets/dem_attack.png",
+    NULL);
     obj->mob->spr_mob_att = sfSprite_create();
     sfSprite_setTexture(obj->mob->spr_mob_att, obj->mob->tex_mob_att, sfFalse);
     sfSprite_scale(obj->mob->spr_mob_att, (sfVector2f){4, 4});
-    obj->mob->tex_mob_dead = sfTexture_createFromFile("assets/dem_death.png", NULL);
+    obj->mob->tex_mob_dead = sfTexture_createFromFile("assets/dem_death.png",
+    NULL);
     obj->mob->spr_mob_dead = sfSprite_create();
-    sfSprite_setTexture(obj->mob->spr_mob_dead, obj->mob->tex_mob_dead, sfFalse);
+    sfSprite_setTexture(obj->mob->spr_mob_dead, obj->mob->tex_mob_dead,
+    sfFalse);
     sfSprite_scale(obj->mob->spr_mob_dead, (sfVector2f){4, 4});
     obj->mob->tex_key = sfTexture_createFromFile("assets/key.png", NULL);
     obj->mob->spr_key = sfSprite_create();
     sfSprite_setTexture(obj->mob->spr_key, obj->mob->tex_key, sfFalse);
     sfSprite_scale(obj->mob->spr_key, (sfVector2f){0.5, 0.5});
+}
+
+static void game_init_mob(obj_t *obj)
+{
+    obj->mob = malloc(sizeof(mob_tex_t));
+    obj->mob->tex_mob_walk = sfTexture_createFromFile("assets/dem_walk.png",
+    NULL);
+    obj->mob->spr_mob_walk = sfSprite_create();
+    sfSprite_setTexture(obj->mob->spr_mob_walk, obj->mob->tex_mob_walk,
+    sfFalse);
+    sfSprite_scale(obj->mob->spr_mob_walk, (sfVector2f){4, 4});
+    obj->mob->tex_mob_hit = sfTexture_createFromFile("assets/dem_hit.png",
+    NULL);
+    obj->mob->spr_mob_hit = sfSprite_create();
+    sfSprite_setTexture(obj->mob->spr_mob_hit, obj->mob->tex_mob_hit, sfFalse);
+    sfSprite_scale(obj->mob->spr_mob_hit, (sfVector2f){4, 4});
+    game_init_mob2(obj);
 }
 
 void game_initialize(obj_t *obj)

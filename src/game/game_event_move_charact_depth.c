@@ -12,20 +12,19 @@ static void leave_ladder(obj_t *obj)
     for (int i = 0; i < obj->map->nb_ladder; i++) {
         if (sfKeyboard_isKeyPressed(sfKeyZ)
             && sfIntRect_contains(&obj->map->ladder[i],
-                                  obj->charact->pos.x,obj->charact->pos.y)==1
+            obj->charact->pos.x, obj->charact->pos.y) == 1
             && sfIntRect_contains(&obj->map->ladder[i],
-                                  obj->charact->pos.x,obj->charact->pos.y-10)==0) {
+            obj->charact->pos.x, obj->charact->pos.y-10) == 0) {
             obj->charact->pos.y -= 10;
             obj->charact->pos.x = obj->map->ladder[i].left + 25;
             obj->charact->act = 0;
         } else if (sfKeyboard_isKeyPressed(sfKeyS)
-                   && sfIntRect_contains(&obj->map->ladder[i],
-                                         obj->charact->pos.x,obj->charact->pos.y)==1
-                   && sfIntRect_contains(&obj->map->ladder[i],
-                                         obj->charact->pos.x,
-                                         obj->charact->pos.y+10)==0) {
+        && sfIntRect_contains(&obj->map->ladder[i],
+        obj->charact->pos.x, obj->charact->pos.y) == 1
+        && sfIntRect_contains(&obj->map->ladder[i],
+        obj->charact->pos.x, obj->charact->pos.y+10) == 0) {
             obj->charact->pos.y += 10;
-            obj->charact->pos.x= obj->map->ladder[i].left + 25;
+            obj->charact->pos.x = obj->map->ladder[i].left + 25;
             obj->charact->act = 0;
         }
     }
@@ -34,20 +33,19 @@ static void leave_ladder(obj_t *obj)
 static int take_ladder(obj_t *obj)
 {
     for (int i = 0; i < obj->map->nb_ladder; i++) {
-        if (sfKeyboard_isKeyPressed(sfKeyZ)
-            &&sfIntRect_contains(&obj->map->ladder[i],
-                                 obj->charact->pos.x,obj->charact->pos.y-10)==1) {
+        if (sfKeyboard_isKeyPressed(sfKeyZ) &&
+        sfIntRect_contains(&obj->map->ladder[i],
+        obj->charact->pos.x , obj->charact->pos.y - 10) == 1) {
             obj->charact->pos.y -= 10;
             obj->charact->pos.x = obj->map->ladder[i].left + 25;
             obj->charact->act = 4;
             obj->charact->z = 0;
             return (0);
         } else if (sfKeyboard_isKeyPressed(sfKeyS)
-                   && sfIntRect_contains(&obj->map->ladder[i],
-                                         obj->charact->pos.x,
-                                         obj->charact->pos.y+10)==1) {
+        && sfIntRect_contains(&obj->map->ladder[i],
+        obj->charact->pos.x, obj->charact->pos.y + 10) == 1) {
             obj->charact->pos.y += 10;
-            obj->charact->pos.x= obj->map->ladder[i].left + 25;
+            obj->charact->pos.x = obj->map->ladder[i].left + 25;
             obj->charact->act = 4;
             obj->charact->z = 0;
             return (0);

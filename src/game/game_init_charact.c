@@ -7,9 +7,27 @@
 
 #include "my_rpg.h"
 
+void init_tex_spr2(charact_t *charact)
+{
+    charact->spr_jump = sfSprite_create();
+    sfSprite_setTexture(charact->spr_jump, charact->tex_jump, sfFalse);
+    sfSprite_scale(charact->spr_jump, (sfVector2f){4, 4});
+    charact->tex_att = sfTexture_createFromFile("assets/KnightAttack.png",
+    NULL);
+    charact->spr_att = sfSprite_create();
+    sfSprite_setTexture(charact->spr_att, charact->tex_att, sfFalse);
+    sfSprite_scale(charact->spr_att, (sfVector2f){4, 4});
+    charact->tex_lad = sfTexture_createFromFile("assets/KnightLadder.png",
+    NULL);
+    charact->spr_lad = sfSprite_create();
+    sfSprite_setTexture(charact->spr_lad, charact->tex_lad, sfFalse);
+    sfSprite_scale(charact->spr_lad, (sfVector2f){4, 4});
+}
+
 static void init_tex_spr(charact_t *charact)
 {
-    charact->tex_idle = sfTexture_createFromFile("assets/KnightIdle.png", NULL);
+    charact->tex_idle = sfTexture_createFromFile("assets/KnightIdle.png",
+    NULL);
     charact->spr_idle = sfSprite_create();
     sfSprite_setTexture(charact->spr_idle, charact->tex_idle, sfFalse);
     sfSprite_scale(charact->spr_idle, (sfVector2f){4, 4});
@@ -17,18 +35,9 @@ static void init_tex_spr(charact_t *charact)
     charact->spr_run = sfSprite_create();
     sfSprite_setTexture(charact->spr_run, charact->tex_run, sfFalse);
     sfSprite_scale(charact->spr_run, (sfVector2f){4, 4});
-    charact->tex_jump = sfTexture_createFromFile("assets/KnightJump.png", NULL);
-    charact->spr_jump = sfSprite_create();
-    sfSprite_setTexture(charact->spr_jump, charact->tex_jump, sfFalse);
-    sfSprite_scale(charact->spr_jump, (sfVector2f){4, 4});
-    charact->tex_att = sfTexture_createFromFile("assets/KnightAttack.png", NULL);
-    charact->spr_att = sfSprite_create();
-    sfSprite_setTexture(charact->spr_att, charact->tex_att, sfFalse);
-    sfSprite_scale(charact->spr_att, (sfVector2f){4, 4});
-    charact->tex_lad = sfTexture_createFromFile("assets/KnightLadder.png", NULL);
-    charact->spr_lad = sfSprite_create();
-    sfSprite_setTexture(charact->spr_lad, charact->tex_lad, sfFalse);
-    sfSprite_scale(charact->spr_lad, (sfVector2f){4, 4});
+    charact->tex_jump = sfTexture_createFromFile("assets/KnightJump.png",
+    NULL);
+    init_tex_spr2(charact);
 }
 
 static void init_life_hp(charact_t *charact)
@@ -39,7 +48,8 @@ static void init_life_hp(charact_t *charact)
     charact->tex_hp = sfTexture_createFromFile("assets/hp.png", NULL);
     charact->spr_hp = sfSprite_create();
     sfSprite_setTexture(charact->spr_hp, charact->tex_hp, sfFalse);
-    charact->tex_dead = sfTexture_createFromFile("assets/KnightDeath.png", NULL);
+    charact->tex_dead = sfTexture_createFromFile("assets/KnightDeath.png",
+    NULL);
     charact->spr_dead = sfSprite_create();
     sfSprite_setTexture(charact->spr_dead, charact->tex_dead, sfFalse);
     sfSprite_scale(charact->spr_dead, (sfVector2f){4, 4});

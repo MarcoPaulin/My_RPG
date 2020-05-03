@@ -11,11 +11,11 @@ static int character_gravity(obj_t *obj)
 {
     if (obj->charact->act == 2)
         obj->charact->act = 0;
-    else if(obj->charact->act == 3 || obj->charact->act == 4)
+    else if (obj->charact->act == 3 || obj->charact->act == 4)
         return (0);
     for (int i = 0; i < obj->map->nb_platform; i++)
         if (sfIntRect_contains(&obj->map->ground[i],
-                               obj->charact->pos.x, obj->charact->pos.y) == 1) {
+        obj->charact->pos.x, obj->charact->pos.y) == 1) {
             obj->charact->pos.y = obj->map->ground[i].top + 1;
             return (0);
         }
@@ -68,7 +68,6 @@ static void character_death(obj_t *obj)
         obj->map = &obj->map_list[0];
     }
 }
-
 
 void game_engine_charact(obj_t *obj)
 {

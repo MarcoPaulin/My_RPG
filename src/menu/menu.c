@@ -12,14 +12,14 @@ m_menu init_texture_menu(void)
     m_menu menu;
     sfVector2i s_sprite = {300, 99};
 
-    menu.background = create_object("sprite/Menu/background.jpg"
-                                    , 0, 0);
+    menu.background = create_object("sprite/Menu/background.jpg",
+    0, 0);
     menu.button_play = create_button("sprite/Menu/button_play.png",
-                                     100, 800, s_sprite);
+    100, 800, s_sprite);
     menu.button_quit = create_button("sprite/Menu/button_quit.png",
-                                     555, 800, s_sprite);
+    555, 800, s_sprite);
     menu.button_option = create_button("sprite/Menu/button_options.png",
-                                       1010, 800, s_sprite);
+    1010, 800, s_sprite);
     menu.button_how_to_play = create_button(
         "sprite/Menu/button_how_to_play.png", 1465, 800, s_sprite);
     menu.check_v = 0;

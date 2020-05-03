@@ -11,12 +11,12 @@ static int mob_gravity(obj_t *obj, mob_t *mob)
 {
     if (mob->act == 2)
         mob->act = 0;
-    else if(mob->act == 3 || mob->act == 4)
+    else if (mob->act == 3 || mob->act == 4)
         return (0);
     for (int i = 0; i < obj->map->nb_platform; i++)
         if (sfIntRect_contains(&obj->map->ground[i],
-                               mob->rect.left+mob->rect.width/2,
-                               mob->rect.top + mob->rect.height) == 1) {
+        mob->rect.left+mob->rect.width/2,
+        mob->rect.top + mob->rect.height) == 1) {
             mob->rect.top = obj->map->ground[i].top + 1 - mob->rect.height;
             return (0);
         }
